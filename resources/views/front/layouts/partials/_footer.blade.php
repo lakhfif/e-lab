@@ -3,34 +3,34 @@
           <div class="col-md-7 col-sm-7 col-xs-7">
             <ul class="pull-right">
             <li>
-              <a href="">
+              <a href="{{route('accueil.index')}}">
                 <span class="glyphicon glyphicon-home" ></span>
                 <span>Accueil</span>
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="{{route('publication.index')}}">
                 <span class="glyphicon glyphicon-pencil" ></span>
                 <span>Publications</span>
                 
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="#">
                 <span class="glyphicon glyphicon-user" ></span>
                 <span>Membres</span>
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="{{route('evenement.index')}}">
                 <span class="glyphicon glyphicon-calendar"></span>
                 <span>Evenements</span>
               </a>
             </li>
             <li>
-              <a href="">
+              <a href="{{route('projet.index')}}">
                 <span class="glyphicon glyphicon-envelope"></span>
-                <span>Contact</span>
+                <span>Projets</span>
               </a>
             </li>
           </ul>
