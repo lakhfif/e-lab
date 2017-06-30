@@ -14,19 +14,19 @@
               <ul class="nav navbar-nav">
                 
                 <li>
-                  <a href="#">ACCUEIL</a>
+                  <a href="{{route('accueil.index')}}">ACCUEIL</a>
                 </li>
                  <li>
-                  <a href="#">PUBLICATIONS</a>
+                  <a href="{{route('publication.index')}}">PUBLICATIONS</a>
                 </li>
                  <li>
                   <a href="#">MEMBRES</a>
                 </li>
                  <li>
-                  <a href="#">EVENEMENTS</a>
+                  <a href="{{route('evenement.index')}}">EVENEMENTS</a>
                 </li>
                 <li>
-                  <a href="#">CONTACT</a>
+                  <a href="{{route('projet.index')}}">PROJETS</a>
                 </li>
 
               </ul>
