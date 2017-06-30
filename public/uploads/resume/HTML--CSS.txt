@@ -1,0 +1,129 @@
+<!DOCTYPE html> 
+<html> 
+   <head> 
+      <meta charset="UTF-8" /> 
+      <style> 
+         font{ 
+            color:red; 
+            font-family:verdana; 
+            font-size:12pt; 
+         } 
+      </style> 
+   </head> 
+   <body> 
+      <font> 
+         Bonjour à tous! 
+      </font> 
+   </body> 
+</html> 
+
+
+
+
+
+ ajouter une feuille css 
+
+<!DOCTYPE html> 
+<html> 
+   <head> 
+      <meta charset="UTF-8" /> 
+      <link rel="stylesheet" type="text/css" href="style.css" /> 
+   </head> 
+   <body> 
+      <h1>Exemple de CSS</h1> 
+      <font> 
+         Voici à quoi ressemble l'effet de la feuille de style sur ce document. 
+      </font> 
+   </body> 
+</html> 
+
+
+
+
+exepmle d'une page CSS
+
+
+div{
+  
+   color:orange;              couleur du texte
+   background-color:#CCCCCC;  coouleur du baground
+   background-image:url("images/footerlogo.png");  image comme baground
+   background-repeat:no-repeat;    pour ne repeter pas l image du baground
+   background-position:50% 50%;    la position de l'image du baground
+   font-size:36pt;   definir la taille de police
+   font-style:italic;  le style du police 
+   font-weight:normal; ou blod 
+   font-family:verdana;  le nom de la police
+   text-align : left; ou right ou center ou justify
+   text-decoration:underline,overline,line-through ou none;
+   text-transform :lowercase,uppercase ou capitalize; la derniere pour transformer la promiere lettre en MAJ de chaque mot
+   
+   margin : 10px;
+   margin-left: Signifie la marge gauche.
+   margin-top: Signifie la marge supérieure.
+   margin-right: Signifie la marge droite.
+   margin-bottom: Signifie la marge inférieure.
+   
+
+   padding=10px; applique une marge interieur aux conteneurs 
+   padding-left: Signifie la marge interne gauche.
+   padding-top: Signifie la marge interne supérieure.
+   padding-right: Signifie la marge interne droite.
+   padding-bottom: Signifie la marge interne inférieure.
+
+
+   width:50%; 
+   height:200px;  sauf les balise de type block qui peuvent etre dimensionner 
+
+   border:solid 1px #0000FF; pour les bordures
+   border-radius:Apx Bpx Cpx Dpx; 
+
+
+   position : absolute,relative,fixed puis pour positioner en utilise 
+   left :10px;, top , right , bottom
+
+   Propriété z-index
+
+   La propriété z-index permet de spécifier la valeur Z sur l'axe (virtuel) sortant de l'écran. 
+   Il a comme valeur un nombre entier. Plus la valeur de z-index est grande plus l'objet est placé au premier plan. 
+
+
+   
+  La propriété display peut accueillir les valeurs suivantes: 
+  inline: permet de transformer une balise HTML en type inline.
+  block: permet de transformer une balise HTML en type block.
+  none: permet de faire disparaître l’élément HTML. L’élément aura l'air comme s'il n'a pas été déclaré dans le code HTML.
+  inline-block: cette valeur a été introduite en CSS3. Elle permet de réunir les principales caractéristiques de chacune des types inline et block. Si on applique la propriété display:inline-block à un élément, il n'engendre pas de retour automatique à la ligne (comme les inline), et peut être redimensionné (comme les block).
+  
+
+  transition:all 0.5s ease;
+
+
+
+
+}
+
+0667617008
+
+
+INSERT INTO `membres`( `nom`, `prenom`, `adresse`, `status`, `email`, `telephone`, `description`, `equipe_id`) VALUES ('ettalhaoui','abdelghani','elmassira','Stagaire','ettalhaoui.andelghani@gmail.com','0657731013','ok',1)
+
+
+23BAE93594
+
+
+ Membre::create([
+
+                 'nom'=>$request->nom,
+                 'prenom'=>$request->prenom,
+                 'adresse'=>$request->adresse,
+                 'status'=>$request->status,
+                 'email'=>$request->email,
+                 'telephone'=>$request->telephone,
+                 'cv'=>$request->cv,
+                 'description'=>$request->description,
+                 'equipe_id'=>$equipe->id   
+
+                ]);
+            
+             echo "bravo !";
