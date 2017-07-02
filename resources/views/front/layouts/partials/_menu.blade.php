@@ -20,7 +20,7 @@
                   <a href="{{route('publication.index')}}">PUBLICATIONS</a>
                 </li>
                  <li>
-                  <a href="#">MEMBRES</a>
+                  <a href="{{route('membre.index')}}">MEMBRES</a>
                 </li>
                  <li>
                   <a href="{{route('evenement.index')}}">EVENEMENTS</a>

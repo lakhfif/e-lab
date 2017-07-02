@@ -225,7 +225,7 @@ small,h5 small{
 .event-date{
 	border: 1px solid black;
 	display: inline-block;
-	#padding: 18px 25px;
+	padding:7px 10px;
 	padding:auto; 
 	color:#965116;
 	font-size:26pt;
@@ -276,4 +276,30 @@ small,h5 small{
 
 .width-col{
 	width: 100%;
+}
+
+.membre-icon{
+	#border: 1px solid black;
+	#display: inline-block;
+	padding:0; 
+	color: #1b926c;
+	font-size:45pt;
+	width: 100%;
+}
+
+.membre-text h4{
+  margin-top: 15px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+
+.status{
+	color: #1b926c;
+	margin-bottom: 4px;
+}
+
+.margin-row{
+	margin-top: 20px;
+	padding-left: 15px;
+	
 }

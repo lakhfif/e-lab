@@ -1,58 +1,140 @@
-@extends('layouts.auth')
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Login Form</title>
+  
+  <style type="text/css">
 
-@section('content')
-<div class="container login">
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Espace admin</div>
-                <div class="panel-body">
-                    <form class="form-horizontal" role="form" method="POST" action="{{ route('login') }}">
-                        {{ csrf_field() }}
+    body {
+  background: #f0efef;
+  font-family: 'Open Sans', sans-serif;
+}
 
-                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
-                            <label for="email" class="col-md-4 control-label">Email</label>
 
-                            <div class="col-md-6">
-                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+.login {
+ 
+  width: 500px;
+  margin: 16px auto;
+  font-size: 16px;
+}
 
-                                @if ($errors->has('email'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('email') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+/* Reset top and bottom margins from certain elements */
+.login-header,
+.login p {
+  margin-top: 0;
+  margin-bottom: 0;
+}
 
-                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
-                            <label for="password" class="col-md-4 control-label">Password</label>
+/* The triangle form is achieved by a CSS hack */
+.login-triangle {
+  width: 0;
+  margin-right: auto;
+  margin-left: auto;
+  border: 12px solid transparent;
+  border-bottom-color: #28d;
+}
 
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control" name="password" required>
+.login-header {
+  background: #28d;
+  padding: 10px;
+  font-size: 1.4em;
+  font-weight: normal;
+  text-align: center;
+  color: #fff;
+}
 
-                                @if ($errors->has('password'))
-                                    <span class="help-block">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
+ h4 {
+    font-family:eras, "Century Gothic", verdana;
+}
 
-                       
+.login-container {
+  background: #ebebeb;
+  padding: 12px;
+}
 
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4 ">
-                                <button type="submit" class="btn btn-primary">
-                                    Login
-                                </button>
+/* Every row inside .login-container is defined with p tags */
+.login p {
+  padding: 12px;
+}
 
-                                
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
+.login input {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  border-width: 1px;
+  border-style: solid;
+  padding: 10px;
+  outline: 0;
+  font-family: inherit;
+  font-size: 0.95em;
+}
+
+.login input[type="email"],
+.login input[type="password"] {
+  background: #fff;
+  border-color: #bbb;
+  color: #555;
+}
+
+/* Text fields' focus effect */
+.login input[type="email"]:focus,
+.login input[type="password"]:focus {
+  border-color: orange;
+}
+
+.login input[type="submit"] {
+  background: #28d;
+  border-color: transparent;
+  border-radius: 4px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.login input[type="submit"]:hover {
+  background: #17c;
+}
+
+/* Buttons' focus effect */
+.login input[type="submit"]:focus {
+  border-color: #05a;
+}
+
+.help{
+    color:red;
+    margin-left: 14px;
+}
+
+  </style>
+  
+</head>
+
+<body>
+  <div class="login">
+  <div class="login-triangle"></div>
+  
+  <h4 class="login-header">Laboratoire de Recherche Scientifique</h4>
+
+  <form class="login-container" role="form" method="POST" action="{{ route('login') }}">
+   {{ csrf_field() }}
+
+    <p><input type="email" placeholder="Email" name="email" required></p>
+    @if ($errors->has('email'))
+       <span class="help">
+         {{ $errors->first('email') }}
+        </span>
+    @endif
+    <p><input type="password" placeholder="Password" name="password"required></p>
+     @if ($errors->has('password'))
+        <span class="help">
+          {{ $errors->first('password') }}
+        </span>
+     @endif
+    <p><input type="submit" value="Log in"></p>
+  </form>
 </div>
-@endsection
+  
+
+  
+</body>
+</html>

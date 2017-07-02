@@ -4,7 +4,7 @@
 		   <header >
 	      	  <h1 id="evenemnt-recent">
 	      	  	<span class="glyphicon glyphicon-calendar"></span>
-	      	  	evenements à venir
+	      	  	evenements recents
 	      	  </h1>
 	      	  </header>
 	      	  	

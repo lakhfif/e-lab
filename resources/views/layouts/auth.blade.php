@@ -9,12 +9,14 @@
         font-family:  eras, "Century Gothic", verdana, sans-serif;
 	}
 	.login{
-		margin-top: 40px;
+		margin-top: 70px;
+
 	}
 	.header{
 		background-color: #003569;
 		color:white;
 		padding: 20px;
+		border-bottom: 2px solid #bbb;
 		
 	}
 </style>

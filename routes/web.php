@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect(route('login'));
+    return redirect(route('accueil.index'));
 });
 
 
@@ -40,4 +40,5 @@ Route::resource('accueil','front\\AccueilController');
 Route::resource('publication','front\\PublicationsController');
 Route::resource('evenement','front\\EvenementsController');
 Route::resource('projet','front\\ProjetsController');
+Route::resource('membre','front\\MembresController');
 

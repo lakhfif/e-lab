@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\front;
 
 use Illuminate\Http\Request;
-use App\Models\Equipe;
+use App\Http\Controllers\Controller;
 use App\Models\Membre;
 
-class EquipesController extends Controller
+class MembresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,9 @@ class EquipesController extends Controller
      */
     public function index()
     {
-        $equipes = Equipe::paginate(5);
+        $membres =  Membre::orderBy('id', 'DESC')->paginate(8);
 
-        return view('equipes.index',compact('equipes'));
+        return view('front.membres.index',compact('membres'));
     }
 
     /**
@@ -37,33 +37,8 @@ class EquipesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-
-        $this->validate($request,[
-
-                'nom'=>'required'
-        ]);
-
-        $membre = Membre::where('nom', '=' ,$request->membre)->first();
-        
-        if(!$membre){
-
-            Equipe::create([
-
-            'nom'=>$request->nom    
-
-            ]);
-
-        }else{
-            Equipe::create([
-
-            'nom'=>$request->nom,
-            'membre_id'=>$membre->id    
-
-            ]);
-        }
-
-        return redirect(route('equipes.index'));
+    {
+        //
     }
 
     /**
@@ -74,7 +49,7 @@ class EquipesController extends Controller
      */
     public function show($id)
     {
-        //
+       
     }
 
     /**
@@ -97,33 +72,7 @@ class EquipesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-
-                'nom'=>'required'
-        ]);
-
-        $equipe = Equipe::findOrFail($id);
-        $membre = Membre::where('nom', '=' ,$request->membre)->first();
-        
-        if(!$membre){
-
-            $equipe->update([
-
-            'nom'=>$request->nom    
-
-            ]);
-
-        }else{
-            $equipe->update([
-
-            'nom'=>$request->nom,
-            'membre_id'=>$membre->id    
-
-            ]);
-        }
-
-
-        return redirect(route('equipes.index'));
+        //
     }
 
     /**
@@ -134,11 +83,6 @@ class EquipesController extends Controller
      */
     public function destroy($id)
     {
-        $equipe = Equipe::findOrFail($id);
-        $equipe->projets()->delete();
-        Equipe::destroy($id);
-
-
-        return redirect(route('equipes.index'));
+        //
     }
 }

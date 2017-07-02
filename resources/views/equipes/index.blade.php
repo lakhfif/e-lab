@@ -17,7 +17,18 @@
                                     <textarea name="nom" class="form-control" rows="2" required></textarea>
                                     {!!$errors->first('nom','<p class="error">:message</p>')!!}
                                   </p>
-                                  
+                                  <p>
+                                    <div class="form-group">
+                                                <label>Responsable</label>
+                                                <select class="form-control" name="membre">
+                                              @foreach(App\Models\Membre::all() as $membre)  
+                                                    <option value="{{$membre->nom}}">{{$membre->nom}}</option>
+                                            
+                                             @endforeach
+                                                    <option value=""></option>
+                                            </select>
+                                    </div>
+                                  </p>
                                   
                                   <p>
                                      <input type="submit" class="btn btn-info btn-block" value="ajouter" />
@@ -37,6 +48,7 @@
                                 <tr>
                                   <th>#</th>
                                   <th>Nom equipe</th>
+                                  <th>Responsable</th>
                                   <th>Personnes</th>
                                   <th></th>
                                 </tr>
@@ -46,13 +58,18 @@
                                  <tr>
                                   <td>{{$equipe->id}}</td>
                                   <td>{{$equipe->nom}}</td>
-                                 
+                                  <td>
+                                    {{
+                                      App\Models\Equipe::responsable($equipe->membre_id)
+                                      
+                                      }}
+                                  </td>
                                   <td>{{
 
                                   	 $equipe->membres()->count()
 
                                   	}}</td>
-                                  <td >
+                                  <td>
                                     <form action="{{route('equipes.destroy',$equipe)}}" method="post" class="inline-block" onsubmit="return confirm('Vous êtes sûr ?')">
                                       {{csrf_field()}}
                                       {{method_field('DELETE')}}
@@ -89,6 +106,18 @@
                                                         <label> nom de nouveau equipe</label>
                                                         <textarea name="nom" class="form-control" rows="2" required>{{$equipe->nom}}</textarea>
                                                         {!!$errors->first('nom','<p class="error">:message</p>')!!}
+                                                      </p>
+                                                      <p>
+                                                        
+                                                        <label>Responsable</label>
+                                                        <select class="form-control" name="membre">
+                                                      @foreach(App\Models\Membre::all() as $membre)  
+                                                            <option value="{{$membre->nom}}">{{$membre->nom}}</option>
+                                                    
+                                                     @endforeach
+                                                              <option value=""></option>
+                                                    </select>
+                                            
                                                       </p>
                                                       
                                                       

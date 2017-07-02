@@ -14,17 +14,10 @@
 			      	</header>
 
       	   			@for($i = 0; $i<count($projets); $i++)
-			      	
-			      	<article>
-			      		<header>
-			      			
-			      			
-			      		</header>
-			      		
-			      		
+			      
 			      		<div class="row">
 							<div class="col-md-6">
-								<div class="row">
+								<div class="row margin-row">
 									<div class="col-md-10 col-xs-10  event-titre width-col">
 									 
 										 	<h4>{{$projets[$i]['nom']}}</h4>
@@ -36,7 +29,7 @@
 							   </div>
 								@if($i+1<count($projets))
 								<div class="col-md-6">
-								<div class="row ">
+								<div class="row margin-row">
 									<div class="col-md-10 col-xs-10 event-titre width-col">
 									 
 										 	<h4>{{$projets[$i+1]['nom']}}</h4>
@@ -51,9 +44,9 @@
 			      		</div>
 
 			      		
-			      	</article>
+			      
 			      	
-			      	 <?php $i++ ?>;
+			      	 <?php $i++ ?>
 
       	   			@endfor
 			      	

@@ -53,9 +53,9 @@
       	   		</div>
       	   		<p class="text-center">
 
-			      		<a href="#" class="btn btn-primary bnt-sm">
-			      			<span>Voir tous les publication</span>
-			      			<span class="glyphicon glyphicon-arrow-right"></span>
+			      		<a href="{{route('publication.index')}}" class="btn btn-primary">
+			      			<span>Voir toutes les publications</span>
+			      			
 			      		</a>
 			      		
 			    </p>

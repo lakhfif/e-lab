@@ -372,7 +372,7 @@
 									<tr>
 	                                  <td>{{$equipe->nom}}</td>
 	                                   <td>
-	                                   	{{App\Models\Equipe::nombrePersonne($equipe->id)}}
+	                                   	{{$equipe->membres()->count()}}
 	                                   </td>
 	                                   <td>
 

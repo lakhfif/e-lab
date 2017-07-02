@@ -15,16 +15,10 @@
 
       	   			@for($i = 0; $i<count($evenements); $i++)
 			      	
-			      	<article>
-			      		<header>
-			      			
-			      			
-			      		</header>
-			      		
-			      		
+			      	
 			      		<div class="row">
 							<div class="col-md-6">
-								<div class="row">
+								<div class="margin-row row">
 									<div class="col-md-2 col-xs-2 col">
 									 <div class=" event-date text-center">
 									  <?php 
@@ -48,7 +42,7 @@
 							   </div>
 								@if($i+1<count($evenements))
 								<div class="col-md-6">
-								<div class="row">
+								<div class="margin-row row">
 									<div class="col-md-2 col-xs-2 col">
 									 <div class=" event-date text-center">
 									  <?php 
@@ -74,9 +68,9 @@
 							
 			      		</div>
 			      		
-			      	</article>
 			      	
-			      	 <?php $i++ ?>;
+			      	
+			      	 <?php $i++ ;?>
 
       	   			@endfor
 			      	
