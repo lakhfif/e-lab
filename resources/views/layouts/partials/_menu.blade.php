@@ -22,13 +22,19 @@
                     <li>
                       <a href="{{route('projets.index')}}">
                         <span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span>
-                        <span class="hidden-xs hidden-sm">Projets </span>
+                        <span class="hidden-xs hidden-sm">Axes</span>
                       </a>
                     </li>
                     <li>
                       <a href="{{route('equipes.index')}}">
-                        <span class="glyphicon glyphicon-user"></span>
+                        <i class="fa fa-users icon" aria-hidden="true"></i>
                         <span class="hidden-xs hidden-sm">Equipes</span>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="{{route('rapports.index')}}">
+                        <i class="fa fa-file-pdf-o icon" aria-hidden="true"></i>
+                        <span class="hidden-xs hidden-sm">Rapports</span>
                       </a>
                     </li>
                      <li>

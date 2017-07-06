@@ -42,6 +42,10 @@ html,body{
 	margin-right:14px;
 }
 
+.icon{
+	font-size: 21px;
+	margin-right:14px;
+}
 #menu a:hover{
 	color:#595959;
 	background-color: #f7f7f7;

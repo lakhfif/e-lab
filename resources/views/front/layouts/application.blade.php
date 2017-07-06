@@ -35,6 +35,7 @@
       <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
       <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
       <script type="text/javascript" src="{{asset('bootstrap/js/bootstrap.js')}}"></script>
+      <script type="text/javascript" src="{{asset('js/search.js')}}"></script>
       @yield('script')
      
       

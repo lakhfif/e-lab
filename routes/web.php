@@ -29,7 +29,7 @@ Route::resource('projets','ProjetsControllers');
 Route::resource('evenements','EvenementsController');
 Route::resource('dashboard','DashboardController');
 Route::resource('settings','SettingController');  
-
+Route::resource('rapports','RapportController');
 Route::get('/home', 'HomeController@index')->name('home');  
 
 });
@@ -42,3 +42,9 @@ Route::resource('evenement','front\\EvenementsController');
 Route::resource('projet','front\\ProjetsController');
 Route::resource('membre','front\\MembresController');
 
+Route::post('search', [
+
+    'uses' => 'front\\SearchController@getSearch',
+    'as' => 'search'
+
+]);

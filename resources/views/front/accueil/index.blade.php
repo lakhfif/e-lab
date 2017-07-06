@@ -20,7 +20,7 @@
 
 					<header >
 			      	  <h1 id="evenemnt-recent">
-			      	  	<span class="glyphicon glyphicon-pencil"></span>
+			      	  	
 			      	  	Derniéres Publications
 			      	  </h1>
 			      	</header>
