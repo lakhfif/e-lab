@@ -16,6 +16,7 @@ class CreateEquipesTable extends Migration
         Schema::create('equipes', function (Blueprint $table) {
             $table->increments('id');
             $table->string('nom');
+            $table->boolean('etat')->default(true);
             $table->timestamps();
         });
     }

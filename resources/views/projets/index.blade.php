@@ -25,8 +25,8 @@
                                   </p>
                                   <p>
                                     <label>l'equipe</label>
-                                     <select class="form-control" name="equipe">
-                                       @foreach(App\Models\Equipe::all() as $equipe)  
+                                     <select class="form-control" name="equipe" required>
+                                       @foreach(App\Models\Equipe::where('etat','=',true)->get() as $equipe)  
                                                   <option value="{{$equipe->nom}}">{{$equipe->nom}}</option>
                                           
                                         @endforeach
@@ -105,8 +105,8 @@
                                                               </p>
                                                               <p>
                                                                 <label>l'equipe</label>
-                                                                 <select class="form-control" name="equipe">
-                                                                   @foreach(App\Models\Equipe::all() as $equipe)  
+                                                                 <select class="form-control" name="equipe" required>
+                                                                   @foreach(App\Models\Equipe::where('etat','=',true)->get() as $equipe)  
                                                                               <option value="{{$equipe->nom}}">{{$equipe->nom}}</option>
                                                                       
                                                                     @endforeach

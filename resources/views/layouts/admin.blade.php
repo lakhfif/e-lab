@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+  <title>Laboratoire de recherche scientifique</title>
    <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
@@ -48,6 +49,8 @@
       
 
       <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
+
+      <script type="text/javascript" src="{{asset('vendor1/summernote-master/dist/summernote.min.js')}}"></script>
       
       @yield('script')
 

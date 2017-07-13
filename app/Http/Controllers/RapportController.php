@@ -93,7 +93,13 @@ class RapportController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rapport = Rapport::findOrFail($id);
+        $rapport->update([
+
+            'nom'=>$request->nom
+
+            ]);
+        return redirect(route('rapports.index'));
     }
 
     /**

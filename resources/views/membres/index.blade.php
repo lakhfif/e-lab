@@ -10,14 +10,7 @@
                          </div>
                          <div class="col-md-9">
                           <div class="pull-right">
-                            <form class="form-inline form hidden-xs form-membre">
-                               <div class='input-group'>
-                                        <input type='text' class="form-control" placeholder="chercher.."/>
-                                        <span class="input-group-btn">
-                                            <button class="btn  btn-info" type="submit"> Go !</button>
-                                        </span>
-                                    </div>
-                            </form>
+                            
                            <!-- Large modal -->
                             <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">ajouter un membre</button>
 
@@ -33,21 +26,15 @@
 
                                     <div class="row">
                                         {{csrf_field()}}
-                                        <div class="col-md-5">
-                                            <div class="form-group">
-                                                <label>Company</label>
-                                                <input type="text" class="form-control border-input" disabled placeholder="Company" value="Laboratoire de recherche Mathematique.">
+                                       
+                                        <div class="col-md-6">
+                                          <div class="form-group">
+                                                <label>nom</label>
+                                                <input type="text" class="form-control border-input" placeholder="Nom" name="nom" required>
                                             </div>
+                                            {!!$errors->first('nom','<p class="error">:message</p>')!!} 
                                         </div>
-                                        <div class="col-md-3">
-                                            <div class="form-group">
-                                                <label>numero du telephone</label>
-                                                <input type="text" class="form-control border-input" placeholder="Telephone" name="telephone" required>
-
-                                            </div>
-                                            {!!$errors->first('telephone','<p class="error">:message</p>')!!}
-                                        </div>
-                                        <div class="col-md-4">
+                                        <div class="col-md-6">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Email</label>
                                                 <input type="email" class="form-control border-input" placeholder="Email" name="email" required>
@@ -59,11 +46,13 @@
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label>nom</label>
-                                                <input type="text" class="form-control border-input" placeholder="Nom" name="nom" required>
+                                         <div class="form-group">
+                                                <label>numero du telephone</label>
+                                                <input type="text" class="form-control border-input" placeholder="Telephone" name="telephone" required>
+
                                             </div>
-                                            {!!$errors->first('nom','<p class="error">:message</p>')!!}
+                                            {!!$errors->first('telephone','<p class="error">:message</p>')!!}   
+
                                         </div>
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -77,8 +66,8 @@
                                     <div class="row">
                                       <div class="col-md-6">
                                             <div class="form-group">
-                                                <label>Status</label>
-                                                <input type="text" class="form-control border-input" placeholder="Status" name="status" required>
+                                                <label>profession</label>
+                                                <input type="text" class="form-control border-input" placeholder="profession" name="status" required>
                                             </div>
                                             {!!$errors->first('status','<p class="error">:message</p>')!!}
                                         </div>
@@ -97,7 +86,7 @@
                                             <div class="form-group">
                                                 <label>Equipe</label>
                                                 <select class="form-control" name="equipe" required>
-                                                 @foreach(App\Models\Equipe::all() as $equipe)  
+                                                 @foreach(App\Models\Equipe::where('etat','=',true)->get() as $equipe)  
                                                   <option value="{{$equipe->nom}}">{{$equipe->nom}}</option>
                                           
                                            @endforeach
@@ -110,7 +99,7 @@
                                      <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <label>Curriculum Vitae(cv)</label>
+                                                <label>Curriculum Vitae(format pdf)</label>
                                                 <input type="file" name="cv" required/>
                                             </div>
                                             {!!$errors->first('cv','<p class="error">:message</p>')!!}
@@ -146,9 +135,10 @@
                                 <tr>
                                   <th>#</th>
                                   <th>Nom</th>
-                                  <th>statut</th>
+                                  <th>Profession</th>
                                   <th class="hidden-xs">Email</th>
-                                  <th>Numero</th>
+                                  <th>Telephone</th>
+                                  <th>Equipe</th>
                                   <th></th>
                                 </tr>
                               </thead>
@@ -161,6 +151,7 @@
                                   <td>{{$membre->status}}</td>
                                   <td class="hidden-xs">{{$membre->email}}</td>
                                   <td>{{$membre->telephone}}</td>
+                                  <td>{{$membre->equipe->nom}}</td>
                                   <td >
                                     
 
@@ -185,21 +176,15 @@
                                                           {{csrf_field()}}
                                                           {{method_field('PUT')}}
                                                           
+                                                          <div class="col-md-6">
+                                                            <div class="form-group">
+                                                                  <label>nom</label>
+                                                                  <input type="text" class="form-control border-input" placeholder="Nom" name="nom" value="{{$membre->nom}}" required>
+                                                              </div>
+                                                              {!!$errors->first('nom','<p class="error">:message</p>')!!}  
 
-                                                          <div class="col-md-5">
-                                                              <div class="form-group">
-                                                                  <label>Company</label>
-                                                                  <input type="text" class="form-control border-input" disabled placeholder="Company" value="Laboratoire de recherche Mathematique.">
-                                                              </div>
                                                           </div>
-                                                          <div class="col-md-3">
-                                                              <div class="form-group">
-                                                                  <label>numero du telephone</label>
-                                                                  <input type="text" class="form-control border-input" placeholder="Telephone" name="telephone" value="{{$membre->telephone}}" required>
-                                                              </div>
-                                                              {!!$errors->first('telephone','<p class="error">:message</p>')!!}
-                                                          </div>
-                                                          <div class="col-md-4">
+                                                          <div class="col-md-6">
                                                               <div class="form-group">
                                                                   <label for="exampleInputEmail1">Email</label>
                                                                   <input type="email" class="form-control border-input" placeholder="Email" name="email"
@@ -211,11 +196,12 @@
 
                                                       <div class="row">
                                                           <div class="col-md-6">
-                                                              <div class="form-group">
-                                                                  <label>nom</label>
-                                                                  <input type="text" class="form-control border-input" placeholder="Nom" name="nom" value="{{$membre->nom}}" required>
-                                                              </div>
-                                                              {!!$errors->first('nom','<p class="error">:message</p>')!!}
+                                                           <div class="form-group">
+                                                              <label>numero du telephone</label>
+                                                              <input type="text" class="form-control border-input" placeholder="Telephone" name="telephone" value="{{$membre->telephone}}"required>
+
+                                                          </div>
+                                                          {!!$errors->first('telephone','<p class="error">:message</p>')!!}   
                                                           </div>
                                                           <div class="col-md-6">
                                                               <div class="form-group">
@@ -229,8 +215,8 @@
                                                       <div class="row">
                                                         <div class="col-md-6">
                                                               <div class="form-group">
-                                                                  <label>Status</label>
-                                                                  <input type="text" class="form-control border-input" placeholder="Status" name="status"
+                                                                  <label>profession</label>
+                                                                  <input type="text" class="form-control border-input" placeholder="profession" name="status"
                                                                   value="{{$membre->status}}" required>
                                                               </div>
                                                               {!!$errors->first('status','<p class="error">:message</p>')!!}
@@ -251,7 +237,7 @@
                                                               <div class="form-group">
                                                                   <label>Equipe</label>
                                                                   <select class="form-control" name="equipe" required>
-                                                                   @foreach(App\Models\Equipe::all() as $equipe)  
+                                                                   @foreach(App\Models\Equipe::where('etat','=',true)->get() as $equipe)  
                                                                     <option value="{{$equipe->nom}}">{{$equipe->nom}}</option>
                                                             
                                                              @endforeach

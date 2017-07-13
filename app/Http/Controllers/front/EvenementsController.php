@@ -15,7 +15,7 @@ class EvenementsController extends Controller
      */
     public function index()
     {
-        $evenements =  Evenement::orderBy('id', 'DESC')->paginate(8);
+        $evenements =  Evenement::orderBy('id', 'DESC')->paginate(14);
         return view('front.evenements.index',compact('evenements'));
     }
 

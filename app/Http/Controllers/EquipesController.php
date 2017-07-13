@@ -44,7 +44,7 @@ class EquipesController extends Controller
                 'nom'=>'required'
         ]);
 
-        $membre = Membre::where('nom', '=' ,$request->membre)->first();
+       /* $membre = Membre::where('nom', '=' ,$request->membre)->first();
         
         if(!$membre){
 
@@ -54,14 +54,14 @@ class EquipesController extends Controller
 
             ]);
 
-        }else{
+        }else{*/
             Equipe::create([
 
-            'nom'=>$request->nom,
-            'membre_id'=>$membre->id    
+            'nom'=>$request->nom
+               
 
             ]);
-        }
+       // }
 
         return redirect(route('equipes.index'));
     }
@@ -103,7 +103,7 @@ class EquipesController extends Controller
         ]);
 
         $equipe = Equipe::findOrFail($id);
-        $membre = Membre::where('nom', '=' ,$request->membre)->first();
+        /*$membre = Membre::where('nom', '=' ,$request->membre)->first();
         
         if(!$membre){
 
@@ -113,14 +113,13 @@ class EquipesController extends Controller
 
             ]);
 
-        }else{
+        }else{*/
             $equipe->update([
 
             'nom'=>$request->nom,
-            'membre_id'=>$membre->id    
 
             ]);
-        }
+       // }
 
 
         return redirect(route('equipes.index'));
@@ -135,9 +134,26 @@ class EquipesController extends Controller
     public function destroy($id)
     {
         $equipe = Equipe::findOrFail($id);
-        $equipe->projets()->delete();
-        Equipe::destroy($id);
+        
+        if($equipe->etat){
 
+            $equipe->update([
+
+                'etat'=>false
+
+            ]);
+
+        } else {
+
+            $equipe->update([
+
+                'etat'=>true
+
+            ]);
+
+        }
+
+         
 
         return redirect(route('equipes.index'));
     }

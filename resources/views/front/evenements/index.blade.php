@@ -75,10 +75,10 @@
       	   			@endfor
 			      	
 			      	
-					{{$evenements->links()}}
+					
       	   		</div>
 
-
+			<div class="pull-left pagination">{{$evenements->links()}}</div>
      </div>
 
 

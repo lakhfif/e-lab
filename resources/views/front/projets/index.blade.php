@@ -9,7 +9,7 @@
 					<header >
 			      	  <h2 id="evenemnt-recent">
 			      	  	<i class="fa fa-home" aria-hidden="true"></i> 
-			      	  	 > Projets
+			      	  	 > Axes
 			      	  </h2>
 			      	</header>
 

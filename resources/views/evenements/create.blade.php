@@ -65,13 +65,16 @@
 	   <script type="text/javascript" src="{{asset('bootstrap/js/bootstrap.js')}}"></script>
 	   <script type="text/javascript" src="{{asset('/js/jquery.datetimepicker.full.js')}}"></script>
       
-      <script type="text/javascript" src="{{asset('vendor1/summernote-master/dist/summernote.min.js')}}"></script>
+      
 
       <script type="text/javascript">
+          $(document).ready(function(){
+
 			    $(function () {
 				   $('#datetimepicker1').datetimepicker();
 				
 				});
+        });
 
 		</script>
      

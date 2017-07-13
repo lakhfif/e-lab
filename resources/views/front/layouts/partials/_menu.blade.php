@@ -26,7 +26,7 @@
                   <a href="{{route('evenement.index')}}">EVENEMENTS</a>
                 </li>
                 <li>
-                  <a href="{{route('projet.index')}}">PROJETS</a>
+                  <a href="{{route('projet.index')}}">AXES</a>
                 </li>
 
               </ul>

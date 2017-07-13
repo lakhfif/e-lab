@@ -8,7 +8,7 @@ use App\Models\Membre;
 class Equipe extends Model
 {
     //
-	protected $fillable = ['nom','membre_id'];
+	protected $fillable = ['nom','membre_id','etat'];
 
 	public function membres() 
 	{

@@ -7,14 +7,17 @@
 
 	<div class="col-md-8 col-sm-12 col-xs-12 left-cell display-cell">
       	   <header>
-      	   		<h1>{{$laboratoire->nom}}</h1>
+      	   		@if($laboratoire)
+				  <h1>{{$laboratoire->nom}}</h1>
+      	   		@endif
       	   	</header>
 
       	   		<div id="description">
       	   			
-      	   			{{$laboratoire->description}}
+      	   			@if($laboratoire)
+					  {{$laboratoire->description}}
+      	   			@endif
 					
-
       	   		</div>
       	   		<div id="pub-recent">
 
@@ -39,7 +42,7 @@
 						
 						{!!App\Models\Publication::readMoreHelper($publication->article)!!}
 
-						<a href="#">Lire plus...</a>
+						<a href="{{route('publication.show',$publication)}}">Lire plus...</a>
 
 							
 			      		</div>

@@ -8,11 +8,20 @@
                          <h4 class="titre-page pull-left ">Setting</h4>
                          
 						<!-- Button trigger modal -->
-						<button type="button" class="btn btn-primary btn-sm pull-right" data-toggle="modal" data-target="#myModal">
-						  Ajouter un admin
-						</button>
-
+						<span class="pull-right clearfix setting">
+							
+								
+							<button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">
+							  Ajouter un admin
+							</button>
 						
+							
+						
+								<button type="button" class="btn btn-primary btn-sm  password" data-toggle="modal" data-target="#myModal1">
+								  changer mot de passe
+								</button>
+							
+						</span>
 
 
 
@@ -170,11 +179,19 @@
 					  </div>
 					</div>
 
+					  @include('setting._modal')
+
 @stop
 
 
 @section('script')
 
 <script type="text/javascript" src="{{asset('bootstrap/js/bootstrap.js')}}"></script>
+<script type="text/javascript">
+@if (count($errors) > 0)
+    $('#myModal').modal('show');
+@endif
+</script>
+
 
 @stop

@@ -46,7 +46,7 @@
                     <li>
                       <a href="{{route('cvs.index')}}">
                         <span class="glyphicon glyphicon-list-alt"></span>
-                        <span class="hidden-xs hidden-sm">Resumes</span>
+                        <span class="hidden-xs hidden-sm">CV</span>
                       </a>
                     </li>
                      <li>

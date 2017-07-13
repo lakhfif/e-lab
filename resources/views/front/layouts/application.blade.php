@@ -5,7 +5,7 @@
      <link rel="stylesheet" type="text/css" href="{{asset('vendor1/font-awesome-4.7.0/css/font-awesome.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('bootstrap/css/bootstrap.css')}}">
     <link rel="stylesheet" type="text/css" href="{{asset('css/front.css')}}">
-   
+   <title>Laboratoire de recherche scientifique</title>
   </head>
   <body>
         

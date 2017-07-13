@@ -17,18 +17,6 @@
                                     <textarea name="nom" class="form-control" rows="2" required></textarea>
                                     {!!$errors->first('nom','<p class="error">:message</p>')!!}
                                   </p>
-                                  <p>
-                                    <div class="form-group">
-                                                <label>Responsable</label>
-                                                <select class="form-control" name="membre">
-                                              @foreach(App\Models\Membre::all() as $membre)  
-                                                    <option value="{{$membre->nom}}">{{$membre->nom}}</option>
-                                            
-                                             @endforeach
-                                                    <option value=""></option>
-                                            </select>
-                                    </div>
-                                  </p>
                                   
                                   <p>
                                      <input type="submit" class="btn btn-info btn-block" value="ajouter" />
@@ -48,8 +36,8 @@
                                 <tr>
                                   <th>#</th>
                                   <th>Nom equipe</th>
-                                  <th>Responsable</th>
-                                  <th>Personnes</th>
+                                  <th class="text-center">nombres de chercheurs</th>
+                                  <th>etat</th>
                                   <th></th>
                                 </tr>
                               </thead>
@@ -58,28 +46,38 @@
                                  <tr>
                                   <td>{{$equipe->id}}</td>
                                   <td>{{$equipe->nom}}</td>
-                                  <td>
-                                    {{
-                                      App\Models\Equipe::responsable($equipe->membre_id)
-                                      
-                                      }}
-                                  </td>
-                                  <td>{{
+                                 
+                                  <td class="text-center">{{
 
                                   	 $equipe->membres()->count()
 
                                   	}}</td>
+                                    <td>
+                                      @if($equipe->etat)
+                                       <label class="label label-success">active</label>
+                                      @else
+                                        <label class="label label-info">not active</label>
+                                      @endif
+
+                                    </td>
                                   <td>
-                                    <form action="{{route('equipes.destroy',$equipe)}}" method="post" class="inline-block" onsubmit="return confirm('Vous êtes sûr ?')">
+                                   <form action="{{route('equipes.destroy',$equipe)}}" method="post" class="inline-block" onsubmit="return confirm('la suppression d'équipe va produire la suppression de ses axes')">
                                       {{csrf_field()}}
                                       {{method_field('DELETE')}}
-                                      <button type="submit" class="btn btn-xs btn-danger">
-                                       <span class="glyphicon glyphicon-trash"></span>
-                                       <span id="btn">supprimer</span> 
-                                      </button>
-                                    </form>
+                                      @if($equipe->etat)
+                                       <button type="submit" class="btn btn-xs btn-danger">
+                                       <span class="glyphicon glyphicon-remove"></span>
+                                       <span id="btn">desactiver</span> 
+                                       </button>
+                                      @else
+                                       <button type="submit" class="btn btn-xs btn-success">
+                                       <span class="glyphicon glyphicon"></span>
+                                       <span id="btn">activer</span> 
+                                       </button>
+                                      @endif
+                                    </form> 
                                   
-                                    <!-- Small modal -->
+                                    
                                     <!-- Button trigger modal -->
                                       <button type="button"  class="btn btn-primary btn-xs" data-toggle="modal" data-target="#myModal-{{$equipe->id}}">
                                         <span class="glyphicon glyphicon-pencil"></span>
@@ -107,20 +105,8 @@
                                                         <textarea name="nom" class="form-control" rows="2" required>{{$equipe->nom}}</textarea>
                                                         {!!$errors->first('nom','<p class="error">:message</p>')!!}
                                                       </p>
-                                                      <p>
-                                                        
-                                                        <label>Responsable</label>
-                                                        <select class="form-control" name="membre">
-                                                      @foreach(App\Models\Membre::all() as $membre)  
-                                                            <option value="{{$membre->nom}}">{{$membre->nom}}</option>
-                                                    
-                                                     @endforeach
-                                                              <option value=""></option>
-                                                    </select>
-                                            
-                                                      </p>
                                                       
-                                                      
+                                                
                                                     </div>
                                                   
                                                 </div>
