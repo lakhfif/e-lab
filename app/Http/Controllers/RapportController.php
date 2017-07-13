@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers\front;
+namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
-use App\Models\Evenement;
+use App\Models\Rapport;
+use Response;
+use File;
 
-class EvenementsController extends Controller
+class RapportController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +16,8 @@ class EvenementsController extends Controller
      */
     public function index()
     {
-        $evenements =  Evenement::orderBy('id', 'DESC')->paginate(14);
-        return view('front.evenements.index',compact('evenements'));
+        $rapports = Rapport::paginate(5);
+        return view('rapports.index',compact('rapports'));
     }
 
     /**
@@ -26,7 +27,7 @@ class EvenementsController extends Controller
      */
     public function create()
     {
-       
+        //
     }
 
     /**
@@ -37,7 +38,22 @@ class EvenementsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if($request->hasFile('document')){
+
+            $file = $request->file('document');
+            $destinationPath = public_path(). '/uploads/rapport/';
+            $file->move($destinationPath,$file->getClientOriginalName());
+
+            Rapport::create([
+
+                'nom'=>$request->nom,
+                'document'=>$file->getClientOriginalName()
+
+                ]);
+
+       }
+
+       return redirect(route('rapports.index'));
     }
 
     /**
@@ -48,9 +64,13 @@ class EvenementsController extends Controller
      */
     public function show($id)
     {
-        $evenement = Evenement::findOrFail($id);
+        $rapport = Rapport::where('id', '=' ,$id)->firstOrFail();
+        $pdf = $rapport->document;
+        $pdf = File::get(public_path().'\\uploads\\rapport\\'.$pdf);
+        $response = Response::make($pdf, 200); 
+        $response->header('Content-Type', 'application/pdf'); 
 
-        return view('front.evenements.show',compact('evenement'));
+        return $response;
     }
 
     /**
@@ -73,7 +93,13 @@ class EvenementsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rapport = Rapport::findOrFail($id);
+        $rapport->update([
+
+            'nom'=>$request->nom
+
+            ]);
+        return redirect(route('rapports.index'));
     }
 
     /**
@@ -84,6 +110,8 @@ class EvenementsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Rapport::destroy($id);
+
+        return redirect(route('rapports.index'));
     }
 }

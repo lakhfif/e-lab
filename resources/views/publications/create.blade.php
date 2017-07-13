@@ -41,7 +41,5 @@
 @section('script')
 
 	<script type="text/javascript" src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
-      
-      <script type="text/javascript" src="{{asset('vendor1/summernote-master/dist/summernote.min.js')}}"></script>
 
 @stop

@@ -9,11 +9,12 @@
 					<header >
 			      	  <h2 id="evenemnt-recent">
 			      	  	<i class="fa fa-home" aria-hidden="true"></i> 
-			      	  	 > Evenements
+			      	  	 > Search
 			      	  </h2>
 			      	</header>
 
-      	   			@for($i = 0; $i<count($evenements); $i++)
+      	   			@if($evenements)
+						@for($i = 0; $i<count($evenements); $i++)
 			      	
 			      	
 			      		<div class="row">
@@ -73,12 +74,11 @@
 			      	 <?php $i++ ;?>
 
       	   			@endfor
+      	   			@endif
 			      	
-			      	
-					
       	   		</div>
 
-			<div class="pull-left pagination">{{$evenements->links()}}</div>
+
      </div>
 
 

@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('', 'Laboratoire de Recherche Scientifique') }}</title>
      <meta name="viewport" content="width=device-width, initial-scale=1">
 
      <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
@@ -38,7 +38,7 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        {{ config('', 'Laboratoire de Recherche Scientifique') }}
                     </a>
                 </div>
 
@@ -53,7 +53,7 @@
                         <!-- Authentication Links -->
                         @if (Auth::guest())
                             <li><a href="{{ route('login') }}">Login</a></li>
-                            <li><a href="{{ route('register') }}">Register</a></li>
+                            
                         @else
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">

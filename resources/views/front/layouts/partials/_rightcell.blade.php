@@ -4,13 +4,13 @@
 		   <header >
 	      	  <h1 id="evenemnt-recent">
 	      	  	<span class="glyphicon glyphicon-calendar"></span>
-	      	  	evenements à venir
+	      	  	evenements recents
 	      	  </h1>
 	      	  </header>
 	      	  	
 	      	  	@foreach(App\Models\Evenement::orderBy('id', 'DESC')->take(4)->get() as $evenement)
 					<div class="event ">
-					<a href=""><h5>
+					<a href="{{route('evenement.show',$evenement)}}"><h5>
 		      	  	{{$evenement->titre}}<br>
 		      	  	<small><span class="glyphicon glyphicon-time"></span>&nbsp;&nbsp;{{$evenement->date}}</small>
 		      	    </h5></a>
@@ -25,14 +25,14 @@
       	  	 <header >
 	      	  <h1 id="evenemnt-recent">
 	      	  	<span class="glyphicon glyphicon-briefcase"></span>
-	      	  	Projets recents
+	      	  	Axes recents
 	      	  </h1>
 	      	  </header>
 	      	  
 	      	  	
 	      	  @foreach(App\Models\Projet::orderBy('id', 'DESC')->take(5)->get() as $projet)
 			  <div class="event ">
-			  <a href="#">
+			  <a href="{{route('projet.show',$projet)}}">
                <h5>{{$projet->nom}}</h5>   
               </a>
               </div> 

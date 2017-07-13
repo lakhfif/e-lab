@@ -23,7 +23,7 @@ class CreateMembresTable extends Migration
             $table->string('telephone');
             $table->string('cv');
             $table->text('description')->nullable();
-            $table->integer('equipe_id')->unsigned();
+            $table->integer('equipe_id')->unsigned()->nullable();
             $table->foreign('equipe_id')
               ->references('id')
               ->on('equipes');

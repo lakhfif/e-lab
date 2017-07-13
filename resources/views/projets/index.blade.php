@@ -8,13 +8,13 @@
                          <div class="col-md-4">
                             <div  class="left-cell-axe">
                             <header>
-                              <h5><b>ajouter un projet</b></h5>
+                              <h5><b>ajouter une Axe</b></h5>
                             </header>
                               <form method="post" action="{{route('projets.store')}}" enctype="multipart/form-data">
                               {{ csrf_field() }}
                                 <div class="form-group">
                                   <p>
-                                    <label> nom de votre nouveau projet</label>
+                                    <label> nom de votre nouveau Axe</label>
                                     <textarea class="form-control" rows="1" name="nom" required></textarea>
                                     {!!$errors->first('nom','<p class="error">:message</p>')!!}
                                   </p>
@@ -25,8 +25,8 @@
                                   </p>
                                   <p>
                                     <label>l'equipe</label>
-                                     <select class="form-control" name="equipe">
-                                       @foreach(App\Models\Equipe::all() as $equipe)  
+                                     <select class="form-control" name="equipe" required>
+                                       @foreach(App\Models\Equipe::where('etat','=',true)->get() as $equipe)  
                                                   <option value="{{$equipe->nom}}">{{$equipe->nom}}</option>
                                           
                                         @endforeach
@@ -44,7 +44,7 @@
                          <div class="col-md-8 right-cell">
                            <div  class="left-cell-axe" >
                              <header>
-                               <h5><b>Projets</b></h5>
+                               <h5><b>Axes</b></h5>
                              </header>
                              <table class="table table-striped">
                                <thead>
@@ -84,7 +84,7 @@
                                                 <div class="modal-content">
                                                   <div class="modal-header">
                                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                                    <h4 class="modal-title" id="myModalLabel">modifier une equipe</h4>
+                                                    <h4 class="modal-title" id="myModalLabel">modifier une Axe</h4>
                                                   </div>
                                                   <div class="modal-body">
                                                     <div  class="">
@@ -94,7 +94,7 @@
                                                           {{method_field('PUT')}}
                                                             <div class="form-group">
                                                               <p>
-                                                                <label> nom du projet</label>
+                                                                <label> nom d'Axe</label>
                                                                 <textarea class="form-control" rows="1" name="nom" required></textarea>
                                                                 {!!$errors->first('nom','<p class="error">:message</p>')!!}
                                                               </p>
@@ -105,8 +105,8 @@
                                                               </p>
                                                               <p>
                                                                 <label>l'equipe</label>
-                                                                 <select class="form-control" name="equipe">
-                                                                   @foreach(App\Models\Equipe::all() as $equipe)  
+                                                                 <select class="form-control" name="equipe" required>
+                                                                   @foreach(App\Models\Equipe::where('etat','=',true)->get() as $equipe)  
                                                                               <option value="{{$equipe->nom}}">{{$equipe->nom}}</option>
                                                                       
                                                                     @endforeach

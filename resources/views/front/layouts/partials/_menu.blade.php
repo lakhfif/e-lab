@@ -20,13 +20,13 @@
                   <a href="{{route('publication.index')}}">PUBLICATIONS</a>
                 </li>
                  <li>
-                  <a href="#">MEMBRES</a>
+                  <a href="{{route('membre.index')}}">MEMBRES</a>
                 </li>
                  <li>
                   <a href="{{route('evenement.index')}}">EVENEMENTS</a>
                 </li>
                 <li>
-                  <a href="{{route('projet.index')}}">PROJETS</a>
+                  <a href="{{route('projet.index')}}">AXES</a>
                 </li>
 
               </ul>
@@ -35,9 +35,10 @@
 
         <div class="col-md-3">
           
-          <form class=" hidden-sm hidden-xs navbar-form navbar-left pull-left">
+          <form class=" hidden-sm hidden-xs navbar-form navbar-left pull-left" id="chercher" action="{{route('search')}}" method="post">
+          {{ csrf_field() }}
                <div class='input-group'>
-                <input type='text' class="form-control" placeholder="chercher.."/>
+                <input type='text' class="form-control" placeholder="chercher.." name="search"id="search" onkeyup="up()" onkeydown="down()" />
                  <span class="input-group-btn">
                   <button class="btn  btn-default" type="submit"> Go !</button>
                 </span>

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return redirect(route('login'));
+    return redirect(route('accueil.index'));
 });
 
 
@@ -29,8 +29,14 @@ Route::resource('projets','ProjetsControllers');
 Route::resource('evenements','EvenementsController');
 Route::resource('dashboard','DashboardController');
 Route::resource('settings','SettingController');  
+Route::resource('rapports','RapportController');
+Route::get('/home', 'HomeController@index')->name('home'); 
+Route::post('changePassword', [
 
-Route::get('/home', 'HomeController@index')->name('home');  
+    'uses' => 'passwordController@changePassword',
+    'as' => 'changePassword'
+
+]); 
 
 });
 
@@ -40,4 +46,12 @@ Route::resource('accueil','front\\AccueilController');
 Route::resource('publication','front\\PublicationsController');
 Route::resource('evenement','front\\EvenementsController');
 Route::resource('projet','front\\ProjetsController');
+Route::resource('membre','front\\MembresController');
+
+Route::post('search', [
+
+    'uses' => 'front\\SearchController@getSearch',
+    'as' => 'search'
+
+]);
 

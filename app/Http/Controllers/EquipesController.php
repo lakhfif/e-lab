@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Equipe;
+use App\Models\Membre;
 
 class EquipesController extends Controller
 {
@@ -43,12 +44,24 @@ class EquipesController extends Controller
                 'nom'=>'required'
         ]);
 
-        Equipe::create([
+       /* $membre = Membre::where('nom', '=' ,$request->membre)->first();
+        
+        if(!$membre){
+
+            Equipe::create([
 
             'nom'=>$request->nom    
 
+            ]);
+
+        }else{*/
+            Equipe::create([
+
+            'nom'=>$request->nom
+               
 
             ]);
+       // }
 
         return redirect(route('equipes.index'));
     }
@@ -90,7 +103,24 @@ class EquipesController extends Controller
         ]);
 
         $equipe = Equipe::findOrFail($id);
-        $equipe->update($request->all());
+        /*$membre = Membre::where('nom', '=' ,$request->membre)->first();
+        
+        if(!$membre){
+
+            $equipe->update([
+
+            'nom'=>$request->nom    
+
+            ]);
+
+        }else{*/
+            $equipe->update([
+
+            'nom'=>$request->nom,
+
+            ]);
+       // }
+
 
         return redirect(route('equipes.index'));
     }
@@ -104,9 +134,26 @@ class EquipesController extends Controller
     public function destroy($id)
     {
         $equipe = Equipe::findOrFail($id);
-        $equipe->projets()->delete();
-        Equipe::destroy($id);
+        
+        if($equipe->etat){
 
+            $equipe->update([
+
+                'etat'=>false
+
+            ]);
+
+        } else {
+
+            $equipe->update([
+
+                'etat'=>true
+
+            ]);
+
+        }
+
+         
 
         return redirect(route('equipes.index'));
     }

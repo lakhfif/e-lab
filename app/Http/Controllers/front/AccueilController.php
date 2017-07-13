@@ -16,7 +16,7 @@ class AccueilController extends Controller
     public function index()
     {
         $publications = Publication::orderBy('id', 'DESC')->take(3)->get();
-        $laboratoire = Laboratoire::firstOrFail();
+        $laboratoire = Laboratoire::first();
         return view('front.accueil.index',compact('laboratoire','publications'));
     }
 

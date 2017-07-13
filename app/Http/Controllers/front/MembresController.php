@@ -4,9 +4,9 @@ namespace App\Http\Controllers\front;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Evenement;
+use App\Models\Membre;
 
-class EvenementsController extends Controller
+class MembresController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,8 +15,9 @@ class EvenementsController extends Controller
      */
     public function index()
     {
-        $evenements =  Evenement::orderBy('id', 'DESC')->paginate(14);
-        return view('front.evenements.index',compact('evenements'));
+        $membres =  Membre::orderBy('id', 'DESC')->paginate(8);
+
+        return view('front.membres.index',compact('membres'));
     }
 
     /**
@@ -26,7 +27,7 @@ class EvenementsController extends Controller
      */
     public function create()
     {
-       
+        //
     }
 
     /**
@@ -48,9 +49,7 @@ class EvenementsController extends Controller
      */
     public function show($id)
     {
-        $evenement = Evenement::findOrFail($id);
-
-        return view('front.evenements.show',compact('evenement'));
+       
     }
 
     /**

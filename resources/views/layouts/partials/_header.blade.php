@@ -19,12 +19,7 @@
                           <div class="col-md-7 col-sm-10">
                             <ul class="pull-right clearfix">
                               <li  class="hidden-xs hidden-sm"id="admin-text">Bienvenue dans l'espace admin</li>
-                              <li>
-                                <a href="#">
-                                  <span class="glyphicon glyphicon-envelope" ></span>
-                                  <span class="label label-message">4</span>
-                                </a>
-                              </li>
+                             
                               <li>
                               <a href="{{ route('logout') }}"
                                             onclick="event.preventDefault();

@@ -8,7 +8,7 @@ use App\Models\Membre;
 class Equipe extends Model
 {
     //
-	protected $fillable = ['nom'];
+	protected $fillable = ['nom','membre_id','etat'];
 
 	public function membres() 
 	{
@@ -18,14 +18,17 @@ class Equipe extends Model
 	public function projets() 
 	{
 	    return $this->hasMany('App\Models\Projet');
-	}   
+	}  
 
+	 
 
-	public static function nombrePersonne($id){
+	public static function responsable($id){
 
-		$membres = Membre::where('id', '=' ,$id);
+		$membre = Membre::where('id', '=' ,$id)->first();
 
-		return $membres->count();
+		if($membre)
+		return $membre->nom;
+		else return '';
 	}
 
 

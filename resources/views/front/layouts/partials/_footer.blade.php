@@ -16,7 +16,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="{{route('membre.index')}}">
                 <span class="glyphicon glyphicon-user" ></span>
                 <span>Membres</span>
               </a>
@@ -29,7 +29,7 @@
             </li>
             <li>
               <a href="{{route('projet.index')}}">
-                <span class="glyphicon glyphicon-envelope"></span>
+                <span class="glyphicon glyphicon-briefcase"></span>
                 <span>Projets</span>
               </a>
             </li>

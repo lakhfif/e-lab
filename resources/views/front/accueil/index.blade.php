@@ -7,20 +7,23 @@
 
 	<div class="col-md-8 col-sm-12 col-xs-12 left-cell display-cell">
       	   <header>
-      	   		<h1>{{$laboratoire->nom}}</h1>
+      	   		@if($laboratoire)
+				  <h1>{{$laboratoire->nom}}</h1>
+      	   		@endif
       	   	</header>
 
       	   		<div id="description">
       	   			
-      	   			{{$laboratoire->description}}
+      	   			@if($laboratoire)
+					  {{$laboratoire->description}}
+      	   			@endif
 					
-
       	   		</div>
       	   		<div id="pub-recent">
 
 					<header >
 			      	  <h1 id="evenemnt-recent">
-			      	  	<span class="glyphicon glyphicon-pencil"></span>
+			      	  	
 			      	  	Derniéres Publications
 			      	  </h1>
 			      	</header>
@@ -39,7 +42,7 @@
 						
 						{!!App\Models\Publication::readMoreHelper($publication->article)!!}
 
-						<a href="#">Lire plus...</a>
+						<a href="{{route('publication.show',$publication)}}">Lire plus...</a>
 
 							
 			      		</div>
@@ -53,9 +56,9 @@
       	   		</div>
       	   		<p class="text-center">
 
-			      		<a href="#" class="btn btn-primary bnt-sm">
-			      			<span>Voir tous les publication</span>
-			      			<span class="glyphicon glyphicon-arrow-right"></span>
+			      		<a href="{{route('publication.index')}}" class="btn btn-primary">
+			      			<span>Voir toutes les publications</span>
+			      			
 			      		</a>
 			      		
 			    </p>
